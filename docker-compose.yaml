@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: AnimeList
+      POSTGRES_USER: BhargavNene
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    restart: unless-stopped  # Added to automatically restart the PostgreSQL container if it exits unexpectedly
+
+  spring-app:
+    build:
+      context: .\AnimeApplication\AnimeList
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/AnimeList
+      SPRING_DATASOURCE_USERNAME: BhargavNene
+      SPRING_DATASOURCE_PASSWORD: admin
+    
+    ports:
+      - "8080:8080"
+volumes:
+  pg_data:
