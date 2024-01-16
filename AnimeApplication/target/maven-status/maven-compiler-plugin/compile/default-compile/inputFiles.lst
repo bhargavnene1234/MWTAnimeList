@@ -1,0 +1,6 @@
+/workspaces/MWTAnimeList/AnimeApplication/src/main/java/com/example/AnimeApplication/AnimeList/AnimeListApplication.java
+/workspaces/MWTAnimeList/AnimeApplication/src/main/java/com/example/AnimeApplication/AnimeList/controller/ListController.java
+/workspaces/MWTAnimeList/AnimeApplication/src/main/java/com/example/AnimeApplication/AnimeList/configuration/ThymeleafConfig.java
+/workspaces/MWTAnimeList/AnimeApplication/src/main/java/com/example/AnimeApplication/AnimeList/repository/ListItemRepository.java
+/workspaces/MWTAnimeList/AnimeApplication/src/main/java/com/example/AnimeApplication/AnimeList/model/ListItem.java
+/workspaces/MWTAnimeList/AnimeApplication/src/main/java/com/example/AnimeApplication/AnimeList/service/ListItemService.java

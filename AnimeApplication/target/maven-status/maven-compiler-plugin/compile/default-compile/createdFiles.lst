@@ -1,0 +1,6 @@
+com/example/AnimeApplication/AnimeList/configuration/ThymeleafConfig.class
+com/example/AnimeApplication/AnimeList/repository/ListItemRepository.class
+com/example/AnimeApplication/AnimeList/controller/ListController.class
+com/example/AnimeApplication/AnimeList/model/ListItem.class
+com/example/AnimeApplication/AnimeList/service/ListItemService.class
+com/example/AnimeApplication/AnimeList/AnimeListApplication.class

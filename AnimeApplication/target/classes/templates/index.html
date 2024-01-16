@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Example</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+        function removeItem(itemId) {
+            var confirmation = confirm('Are you sure you want to remove item with ID: ' + itemId);
+            if (confirmation) {
+                document.getElementById('removeForm-' + itemId).submit();
+            }
+        }
+
+        function redirectToHome() {
+            window.location.href = '/';
+        }
+    </script>
+</head>
+
+<body>
+
+    <form th:action="@{/addItem}" method="post" id="listForm">
+        <label for="textInput">Enter Text:</label>
+        <input type="text" id="textInput" name="text" placeholder="Type something" required>
+        <button type="submit">Add to List</button>
+    </form>
+
+    <div th:if="${items}">
+        <h2>Anime List:</h2>
+        <ul>
+            <li th:each="item : ${items}">
+                <span th:text="${item.text}"></span>
+                <form th:id="'removeForm-' + ${item.id}" th:action="@{'/removeItem/' + ${item.id}}" method="post">
+                    <button type="button" th:onclick="'removeItem(\'' + ${item.id} + '\')'">&times;</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // Thymeleaf inline script to check if the page is redirected after removal
+        var redirectParam = /*[[@{param.redirect}]]*/ 'false';
+        if (redirectParam === 'true') {
+            redirectToHome();
+        }
+        /*]]>*/
+    </script>
+
+</body>
+</html>
